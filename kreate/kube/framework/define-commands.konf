@@ -8,19 +8,19 @@ system:
       script: kubectl kustomize {target_dir}
     diff:
       help: run kubectl diff
-      script:  kubectl --context {konfig.app.env} -n {konfig.app.namespace} diff  -k {target_dir}
+      script:  kubectl --context {konfig.app.env} -n {konfig.app.namespace} diff  -k {target_dir} --server-side
     diff-file:
       help: run kubectl diff for a specific file
-      script:  kubectl --context {konfig.app.env} -n {konfig.app.namespace} diff -f {file}
+      script:  kubectl --context {konfig.app.env} -n {konfig.app.namespace} diff -f {file} --server-side
     getyaml:
         help: run kubectl get
         script:  kubectl --context {konfig.app.env} -n {konfig.app.namespace} get {resource_type} {resource_name} -o yaml
     apply:
       help: run kubectl apply
-      script: kubectl --context {konfig.app.env} -n {konfig.app.namespace} apply -k {target_dir}
+      script: kubectl --context {konfig.app.env} -n {konfig.app.namespace} apply -k {target_dir} --server-side
     dry-run:
       help: run kubectl apply --dry-run=server
-      script: kubectl --context {konfig.app.env} -n {konfig.app.namespace} apply --dry-run=server -k {target_dir}
+      script: kubectl --context {konfig.app.env} -n {konfig.app.namespace} apply --dry-run=server -k {target_dir} --server-side
     # example of a new command, that can be run with the run subcommand
     ls:
       help: list all files that are kreated
