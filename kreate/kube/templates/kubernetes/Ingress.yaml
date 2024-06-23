@@ -40,7 +40,7 @@ spec:
               service:
                 name: {{ my.field.service }}
                 port:
-                  number: {{ my.field.containerPort }}
+                  number: {{ my.field.servicePort }}
 {% if "tls_certificate_secret" in my.field %}
   tls:
   - hosts:
